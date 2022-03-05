@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class MatrixMult {
 
-    static int[] get_dimensions() {
-        Scanner x = new Scanner(System.in);
+    static int[] get_dimensions(Scanner scan) {
+
 
         int[] dimensions = new int[4];
         for (int dimension = 0; dimension < 4; dimension++) {
-            if (x.hasNextInt()) {
-                dimensions[dimension] = x.nextInt();
+            if (scan.hasNextInt()) {
+                dimensions[dimension] = scan.nextInt();
                 if (dimensions[dimension] <= 0) {
                     System.out.println("Invalid input.");
                     break;
@@ -24,14 +24,14 @@ public class MatrixMult {
         return dimensions;
     }
 
-    static int[][] get_matrix(int row, int column) {
+    static int[][] get_matrix(int row, int column, Scanner scan) {
         if (row == 1 && column == 1)
             return null;
 
         int[][] matrix = new int[row][column];
 
         for (int i = 0; i < row; i++){
-            Scanner scan = new Scanner(System.in);
+//            Scanner scan = new Scanner(System.in);
             for (int j=0; j<column; j++) {
                 if (scan.hasNextInt())
                     matrix[i][j] = scan.nextInt();
@@ -60,16 +60,18 @@ public class MatrixMult {
     }
 
     public static void main (String[] args) {
-        int[] dimensions = get_dimensions();
+        Scanner scan = new Scanner(System.in);
+
+        int[] dimensions = get_dimensions(scan);
         int A_row = dimensions[1];
         int A_column = dimensions[0];
         int B_row = dimensions[3];
         int B_column = dimensions[2];
 
         int[][] matrix_A;
-        matrix_A = get_matrix(A_row, A_column);
+        matrix_A = get_matrix(A_row, A_column, scan);
         int[][] matrix_B;
-        matrix_B = get_matrix(B_row, B_column);
+        matrix_B = get_matrix(B_row, B_column, scan);
 
         int[][] result;
         result = calculate_matrix(matrix_A, matrix_B);
@@ -79,9 +81,11 @@ public class MatrixMult {
         else {
             for(int i=0;i<A_row;i++){
                 for (int j=0;j<B_column;j++){
-                    System.out.print(result[i][j] + " ");
+                    System.out.print(result[i][j]);
+                    if (j < B_column-1)
+                        System.out.print(" ");
                 }
-                System.out.println("");
+                System.out.println();
             }
         }
     }
