@@ -28,7 +28,7 @@ public class MatrixMult {
         if (row == 1 && column == 1)
             return null;
 
-        int matrix[][] = new int[row][column];
+        int[][] matrix = new int[row][column];
 
         for (int i = 0; i < row; i++){
             Scanner scan = new Scanner(System.in);
@@ -66,19 +66,24 @@ public class MatrixMult {
         int B_row = dimensions[3];
         int B_column = dimensions[2];
 
-        int[][] matrix_A = new int[A_row][A_column];
+        int[][] matrix_A;
         matrix_A = get_matrix(A_row, A_column);
-        int[][] matrix_B = new int[B_row][B_column];
+        int[][] matrix_B;
         matrix_B = get_matrix(B_row, B_column);
 
-        int[][] result = new int[A_row][B_column];
+        int[][] result;
         result = calculate_matrix(matrix_A, matrix_B);
 
-
-
-////        int[] a = get_dimensions();
-//        int[][] a = new int[2][2];
-//        a = get_matrix(2,2);
-        System.out.println("");
+        if (result == null)
+            System.out.println("Invalid input.");
+        else {
+            for(int i=0;i<A_row;i++){
+                for (int j=0;j<B_column;j++){
+                    System.out.print(result[i][j] + " ");
+                }
+                System.out.println("");
+            }
+        }
     }
+
 }
