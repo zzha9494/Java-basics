@@ -44,19 +44,17 @@ public class Dictionary {
 
     public static void main(String[] args) {
         // TODO
-        if (args.length == 0) {
-            Dictionary[] results = readDictionary("C:\\Users\\1\\IdeaProjects\\9003\\src\\W3\\sample.dict");
+        if (args.length == 1) {
+            Dictionary[] results = readDictionary("sample.dict");
             Scanner scan = new Scanner(System.in);
 
             while (scan.hasNextLine()) {
                 String input = scan.nextLine();
                 if (!input.equals(""))
-                    System.out.println(matchEntry(results, input));
+                    System.out.println(matchEntry(results, input) + "\n");
                 else
                     break;
             }
-//            String a = matchEntry(results, scan.nextLine());
-//            System.out.println(a);
 
         }
         else
