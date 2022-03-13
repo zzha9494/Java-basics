@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Dictionary {
 
-    private String entry;
-    private String definition;
+    private final String entry;
+    private final String definition;
 
     public Dictionary(String entry, String definition) {
         this.entry = entry;
@@ -35,9 +35,12 @@ public class Dictionary {
 
     public static String matchEntry(Dictionary[] entries, String entry) {
         for (Dictionary i: entries)
-            if (i != null)
+            if (i != null) {
                 if (i.entry.equals(entry))
                     return i.definition;
+            }
+            else
+                break;
 
         return "No matching definition";
     }
@@ -58,7 +61,6 @@ public class Dictionary {
         }
         else
             System.out.println("No dictionary provided");
-
     }
 
 }
