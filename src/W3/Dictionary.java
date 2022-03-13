@@ -45,7 +45,7 @@ public class Dictionary {
     public static void main(String[] args) {
         // TODO
         if (args.length == 1) {
-            Dictionary[] results = readDictionary("sample.dict");
+            Dictionary[] results = readDictionary(args[0]);
             Scanner scan = new Scanner(System.in);
 
             while (scan.hasNextLine()) {
@@ -55,7 +55,6 @@ public class Dictionary {
                 else
                     break;
             }
-
         }
         else
             System.out.println("No dictionary provided");
