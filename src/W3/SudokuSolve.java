@@ -22,29 +22,59 @@ public class SudokuSolve {
             }
             return true;
         }
-
     }
 
     public static boolean isSolvable(Integer[][] board) {
         //TODO
+        if (board == null)
+            return false;
 
+        for (Integer[] i: board) {
+            if (i == null)
+                return false;
+        }
 
-        return false;
+        if(board.length != 3)
+            return false;
+
+        if(board[0].length != 3 || board[1].length != 3 || board[2].length != 3)
+            return false;
+
+        Integer[][] checklist = new Integer[7][];
+        checklist[0] = board[0];
+        checklist[1] = board[1];
+        checklist[2] = board[2];
+        for (int i = 3; i < 6; i++) {
+            checklist[i] = new Integer[]{board[0][i - 3], board[1][i - 3], board[2][i - 3]};
+        }
+        checklist[6] = new Integer[9];
+        int count = 0;
+        for (int i=0;i<3;i++) {
+            for(Integer j: checklist[i]) {
+                checklist[6][count++] = j;
+            }
+        }
+
+        for (Integer[] i: checklist)
+            if (!arrayValid(i))
+                return false;
+        return true;
     }
 
     public static void main(String[] args) {
         //Write some tests if you want check here or change b
         Integer[][] b = {
-                { 1, 2, 3},
-                { 4,6,5},
-                { 7,8,9}
-        };
-        if(isSolvable(b)) {
-            System.out.println("Yes this is solvable!");
+                {1,2,3},
+                {4,5,6},
+                null
 
-//        System.out.println(b[0][2]);
-        }
-        System.out.println(arrayValid(b[1]));
+
+        };
+        if(isSolvable(b))
+            System.out.println("Yes this is solvable!");
+        else
+            System.out.println("no");
+
     }
 
 }
