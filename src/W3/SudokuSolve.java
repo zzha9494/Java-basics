@@ -55,11 +55,20 @@ public class SudokuSolve {
             }
         }
 
-
-        Integer[] column = new Integer[board.length];
-        for (int i =0;i<board.length;i++) {
-
+        Integer [] c1= {board[0][0], board[1][0], board[2][0]};
+        Integer [] c2= {board[0][1], board[1][1], board[2][1]};
+        Integer [] c3= {board[0][2], board[1][2], board[2][2]};
+        Integer [] all = {board[0][0], board[1][0], board[2][0], board[0][1], board[1][1], board[2][1], board[0][2], board[1][2], board[2][2]};
+        if (!isArrayValid(c1) || !isArrayValid(c2) || !isArrayValid(c3) || !isArrayValid(all)) {
+            System.out.println(7);
+            return false;
         }
+
+
+//        Integer[] column = new Integer[board.length];
+//        for (int i =0;i<board.length;i++) {
+//
+//        }
 
         return true;
     }
