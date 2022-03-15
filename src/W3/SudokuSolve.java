@@ -1,6 +1,20 @@
 package W3;
 
+import java.util.Arrays;
+
 public class SudokuSolve {
+    public static boolean isArrayValid(Integer[] x) {
+        int[] a = new int[x.length];
+        for(int i=0; i<x.length;i++)
+            a[i] = x[i];
+
+        Arrays.sort(a);
+        for (int i = 1; i < a.length; i++) {
+            if (a[i-1] == a[i])
+                return false;
+        }
+        return true;
+    }
 
     public static boolean isSolvable(Integer[][] board) {
         //TODO
@@ -34,10 +48,18 @@ public class SudokuSolve {
             }
         }
 
+        for (Integer[] i: board) {
+            if (!isArrayValid(i)) {
+                System.out.println(6);
+                return false; // row
+            }
+        }
 
 
+        Integer[] column = new Integer[board.length];
+        for (int i =0;i<board.length;i++) {
 
-
+        }
 
         return true;
     }
@@ -47,8 +69,13 @@ public class SudokuSolve {
         Integer[][] b = {
                 { 1, 2, 3},
                 { 4,5,6},
-                {1,1,9,1,1,1}
+                {11,12,13}
         };
+//        if (isArrayValid(b[1])) {
+//            System.out.println("yes");
+//        }
+//    }
+
 
         if(isSolvable(b)) {
             System.out.println("Yes this is solvable!");
