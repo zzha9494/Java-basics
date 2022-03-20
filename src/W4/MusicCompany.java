@@ -1,5 +1,6 @@
 package W4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MusicCompany {
@@ -22,6 +23,8 @@ public class MusicCompany {
     }
 
     public List<MusicStore> getStores() {
+        if (this.stores == null)
+            this.stores = new ArrayList<MusicStore>();
         return this.stores;
     }
 
