@@ -33,7 +33,7 @@ public class MusicStore {
         return this.songs;
     }
 
-    public List<Song> getSongsBySongType(String songType) {
+    public List<Song> getSongsByType(String songType) {
 //        if (songType == null)
 //            return null;
 
