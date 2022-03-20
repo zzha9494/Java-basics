@@ -20,7 +20,7 @@ public class test {
         market.addSong(war2);
 
         List<Song> listsinger = market.getSongsBySinger(small_tony);
-        List<Song> listtype = market.getSongsBySongType("rock");
+        List<Song> listtype = market.getSongsBySongType(null);
 
 
 

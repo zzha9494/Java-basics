@@ -34,6 +34,9 @@ public class MusicStore {
     }
 
     public List<Song> getSongsBySongType(String songType) {
+//        if (songType == null)
+//            return null;
+
         List<Song> temp = new ArrayList<Song>();
 
         for (Song i: this.songs.keySet()) {
@@ -44,6 +47,9 @@ public class MusicStore {
     }
 
     public List<Song> getSongsBySinger(Singer singer) {
+        if (singer == null)
+            return null;
+
         List<Song> temp = new ArrayList<Song>();
 
         for (Song i: this.songs.keySet()) {
