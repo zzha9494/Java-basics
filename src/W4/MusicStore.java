@@ -34,8 +34,8 @@ public class MusicStore {
     }
 
     public List<Song> getSongsByType(String songType) {
-//        if (songType == null)
-//            return null;
+        if (songType == null)
+            return null;
 
         List<Song> temp = new ArrayList<Song>();
 

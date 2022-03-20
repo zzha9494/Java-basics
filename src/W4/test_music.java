@@ -1,8 +1,8 @@
 package W4;
 
-import java.util.List;
+import java.util.HashMap;
 
-public class test {
+public class test_music {
 
     public static void main(String[] args) {
         Singer small_tony = new Singer("Tong Smith", 2000, -1);
@@ -13,15 +13,15 @@ public class test {
         Song goodday = new Song("GOOD DAY", small_tony, appleMusic, 2010, "pop");
         Song war2 = new Song("WAR 2", big_tony, appleMusic, 1930, "rock");
 
+
         MusicStore market = new MusicStore("Market", 2020, "Sydney");
 
-        market.addSong(goodday);
-        market.addSong(goodday);
-        market.addSong(war2);
+//        market.addSong(goodday);
+//        market.addSong(goodday);
+//        market.addSong(war2);
 
-        List<Song> listsinger = market.getSongsBySinger(small_tony);
-        List<Song> listtype = market.getSongsByType(null);
-
+//        List<Song> listsinger = market.getSongsBySinger(small_tony);
+        HashMap<Song, Integer> album = market.getSongs();
 
 
         System.out.println(war2.copyrighted());
