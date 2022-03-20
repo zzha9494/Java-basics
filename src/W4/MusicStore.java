@@ -54,6 +54,9 @@ public class MusicStore {
     }
 
     public void addSong(Song song) {
+        if (this.songs == null)
+            this.songs = new HashMap<Song, Integer>();
+
         if (!this.songs.containsKey(song))
             this.songs.put(song, 1);
         else {
