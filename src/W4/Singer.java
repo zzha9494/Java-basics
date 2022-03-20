@@ -4,7 +4,7 @@ public class Singer {
 
     private String name;
     private int birthYear;
-    private int deathYear;
+    private int deathYear; // -1 when alive
 
     public Singer(String name, int birthYear, int deathYear) {
         this.name = name;
