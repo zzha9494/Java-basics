@@ -35,8 +35,10 @@ public class Nforce {
     public static void main(String[] args) {
 
         // TODO
-        System.out.print("Enter height: ");
         Scanner scan = new Scanner(System.in);
+        List<StringBuilder> output = new ArrayList<StringBuilder>();
+
+        System.out.print("Enter height: ");
         if (!scan.hasNextInt()) {
             System.out.println("\nInvalid height.");
             return;
@@ -53,12 +55,10 @@ public class Nforce {
             return;
         }
         int row = scan.nextInt();
-
-        List<StringBuilder> output = new ArrayList<StringBuilder>();
-
-        List<String> triangle = new ArrayList<String>();
-        for (StringBuilder i: create_one_triangle(h))
-            triangle.add(i.toString());
+        if (row < 1 || row > 20) {
+            System.out.println("\nInvalid number of rows.");
+            return;
+        }
 
         StringBuilder blank = new StringBuilder();
         for (int i = 0; i < h * row; i++) {
@@ -73,6 +73,10 @@ public class Nforce {
             output.get(j).append(temp.get(j%h));
         }
 
+        List<String> triangle = new ArrayList<String>();
+        for (StringBuilder i: create_one_triangle(h))
+            triangle.add(i.toString());
+
         for (int i = 0; i< row; i++)
             for (int j = 0; j<h*row; j++)
                 if (j < i*h)
@@ -83,13 +87,7 @@ public class Nforce {
             line.delete(line.length()-i%h, line.length());
         }
 
-
-
-
-
-
-
-
+        System.out.println("");
         for (int i =0; i < output.size(); i++)
             System.out.println(output.get(output.size()-i-1));
     }
