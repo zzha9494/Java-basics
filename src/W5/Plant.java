@@ -17,8 +17,11 @@ public class Plant {
     }
 
     public boolean uprooted() {
+        return this.uprooted;
+    }
+
+    public void uproot() {
         this.uprooted = true;
-        return true;
     }
 
     public boolean isAlive() {
@@ -37,7 +40,9 @@ public class Plant {
         return this.species;
     }
 
-    public boolean equals(Plant p) {
+    @Override
+    public boolean equals(Object o) {
+        Plant p = (Plant) o;
         return this.alive == p.alive && this.species.equals(p.species) && this.height == p.height && this.uprooted == p.uprooted;
     }
 
